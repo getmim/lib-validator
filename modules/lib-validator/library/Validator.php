@@ -18,25 +18,9 @@ class Validator
 
     private static function buildRules(): void{
         $conf = \Mim::$app->config->libValidator;
-
-        $props = [
-            'rules' => 'validators',
-            'filters' => 'filters'
-        ];
-
-        foreach($props as $prop => $pconf){
-            foreach($conf->$pconf as $rname => $rhandler){
-                $hdr = explode('::', $rhandler);
-                $class  = $hdr[0];
-                $method = $hdr[1];
-                self::$$prop[$rname] = (object)[
-                    'class' => $class,
-                    'method' => $method
-                ];
-            }
-        }
-
-        self::$trans = (array)$conf->errors;
+        self::$rules    = $conf->_validators;
+        self::$filters  = $conf->_filters;
+        self::$trans    = (array)$conf->errors;
     }
 
     private static function buildError(array $data): object{
@@ -97,7 +81,7 @@ class Validator
             $is_valid = true;
 
             foreach($rules as $rname => $ropt){
-                $handler = self::$rules[$rname];
+                $handler = self::$rules->$rname;
                 $class   = $handler->class;
                 $method  = $handler->method;
 

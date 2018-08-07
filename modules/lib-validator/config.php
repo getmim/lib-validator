@@ -99,5 +99,13 @@ return [
             '13.2' => 'form.error.general.dont_have_query',
             '13.3' => 'form.error.general.require_query_not_present'
         ]
+    ],
+
+    'callback' => [
+        'app' => [
+            'reconfig' => [
+                'LibValidator\\Library\\Config::reconfig' => true
+            ]
+        ]
     ]
 ];
