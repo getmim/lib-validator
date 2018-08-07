@@ -29,7 +29,7 @@ class ValidatorTest extends TestCase
             ['array',   null,   ['a'=>1],   true],
             ['array',   '1.0',  1,          true],
             ['array',   '1.0',  (object)[], true],
-            ['array',   '1.0',  null,       true],
+            ['array',   null,  null,       true],
 
             ['array',   null,   [],         'indexed'],
             ['array',   null,   [1,2],      'indexed'],
@@ -110,7 +110,7 @@ class ValidatorTest extends TestCase
             ['text',    null,   'lorem',    true],
             ['text',    '12.0', 12,         true],
             ['text',    '12.0', true,       true],
-            ['text',    '12.0', null,       true],
+            ['text',    null,   null,       true],
 
             ['text',    null,   'lorem-09_str', 'slug'],
             ['text',    '12.1', 'Lorem-09_str', 'slug'],
