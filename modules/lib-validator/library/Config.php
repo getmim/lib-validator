@@ -28,7 +28,7 @@ class Config
                 ];
             }
 
-            $config->libValidator->{'_'.$name} = $rvalue;
+            $config->libValidator->$name = $rvalue;
         }
     }
 }

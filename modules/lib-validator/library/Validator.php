@@ -18,8 +18,8 @@ class Validator
 
     private static function buildRules(): void{
         $conf = \Mim::$app->config->libValidator;
-        self::$rules    = $conf->_validators;
-        self::$filters  = $conf->_filters;
+        self::$rules    = $conf->validators;
+        self::$filters  = $conf->filters;
         self::$trans    = (array)$conf->errors;
     }
 
