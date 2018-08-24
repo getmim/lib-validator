@@ -461,6 +461,12 @@ number  | rule      | description
 13.2    | url       | Don't have query
 13.3    | url       | Required query not present
 
+Module-module lain yang juga mendaftarkan error code adalah sebagai berikut:
+
+number | rule   | module    | description
+-------|--------|-----------|------------
+14.0   | unique | lib-model | Not unique.
+
 Untuk menambahkan error code yang lain, pastikan menambahkan nilai
 seperti di bawah pada konfigurasi module:
 
