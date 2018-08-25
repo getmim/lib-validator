@@ -83,7 +83,7 @@ $object = [
     ]
 ];
 
-list($result, $errors) = Validator::validate($rules, $object);
+list($result, $errors) = Validator::validate(objectify($rules), objectify($object));
 
 // $result berisi informasi object setelah melewati validator
 // dan filters
@@ -324,7 +324,7 @@ custom rule, pastikan mendaftarkan pada konfigurasi module seperti di bawah:
 return [
     // ...
     'libValidator' => [
-        'rules' => [
+        'validators' => [
             'ifirst' => 'MyRule\\Rules\\Custom::ifirst'
         ]
     ]
@@ -340,7 +340,7 @@ namespace MyRule\Rules;
 class Custom{
     static function ifirst($value, $options, $object, $field, $rules): ?array{
         if(substr($value, 0, 1) === 'i')
-            return;
+            return null;
         return ['20.0'];
     }
 }
