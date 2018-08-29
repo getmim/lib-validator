@@ -48,14 +48,10 @@ class Validator
         $result = (object)[
             'field' => ($parent?$parent.'.':'') . $field,
             'code'  => $code,
-            'text'  => '',
-            'trans' => (object)[
-                'key' => self::$trans[$code] ?? '',
-                'params' => $params
-            ]
+            'text'  => ''
         ];
 
-        $text = lang($result->trans->key, $result->trans->params);
+        $text = lang((self::$trans[$code] ?? ''), $params);
         $result->text = $text;
 
         return $result;
