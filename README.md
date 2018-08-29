@@ -463,9 +463,18 @@ number  | rule      | description
 
 Module-module lain yang juga mendaftarkan error code adalah sebagai berikut:
 
-number | rule   | module    | description
--------|--------|-----------|------------
-14.0   | unique | lib-model | Not unique.
+number | rule        | module     | description
+-------|-------------|------------|------------
+14.0   | unique      | lib-model  | Not unique.
+15.0   | upload-form | lib-upload | Upload form not found.
+16.0.1 | upload-file | lib-upload | File size too small.
+16.0.2 | upload-file | lib-upload | File size too big.
+16.1   | upload-file | lib-upload | Mime type not accepted.
+16.2   | upload-file | lib-upload | File extension not accepted.
+16.3.1 | upload-file | lib-upload | File image width too small.
+16.3.2 | upload-file | lib-upload | File image width too big.
+16.4.1 | upload-file | lib-upload | File image height too small.
+16.4.2 | upload-file | lib-upload | File image height too big.
 
 Untuk menambahkan error code yang lain, pastikan menambahkan nilai
 seperti di bawah pada konfigurasi module:
