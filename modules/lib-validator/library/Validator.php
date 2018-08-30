@@ -34,7 +34,7 @@ class Validator
 
         $code = $valid[0];
 
-        $params = $error[1] ?? [];
+        $params = $valid[1] ?? [];
         $params['field'] = $field;
         $params[$rule] = $validation->rules->$rule;
         $params['value'] = $value;
