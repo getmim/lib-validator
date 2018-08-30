@@ -77,6 +77,8 @@ class Validator
             $is_valid = true;
 
             foreach($rules as $rname => $ropt){
+                if(!isset(self::$rules->$rname))
+                    trigger_error('Validator rule named `' . $rname . '` not registered');
                 $handler = self::$rules->$rname;
                 $class   = $handler->class;
                 $method  = $handler->method;
