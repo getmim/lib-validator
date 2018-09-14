@@ -102,7 +102,7 @@ class Validator
 
             if($is_valid){
                 foreach($filters as $name => $fopt){
-                    $handler = self::$filters[$name];
+                    $handler = self::$filters->$name;
                     $class   = $handler->class;
                     $method  = $handler->method;
                     $value   = $class::$method($value, $fopt, $object, $fname, $filters);
