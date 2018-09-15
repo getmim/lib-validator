@@ -475,6 +475,12 @@ number | rule        | module     | description
 16.3.2 | upload-file | lib-upload | File image width too big.
 16.4.1 | upload-file | lib-upload | File image height too small.
 16.4.2 | upload-file | lib-upload | File image height too big.
+17.0   | upload      | lib-upload | File target not found.
+17.1   | upload      | lib-upload | Target file not acceptable.
+18.0   | upload-list | lib-upload | One or more file not found.
+18.1   | upload-list | lib-upload | One or more file not acceptable.
+19.0   | exists      | lib-model  | Object not exists on db.
+20.0   | exists-list | lib-model  | One or more object not exists on db.
 
 Untuk menambahkan error code yang lain, pastikan menambahkan nilai
 seperti di bawah pada konfigurasi module:
