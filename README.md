@@ -265,6 +265,35 @@ Validator yang akan mencocokan nilai regex dengan nilai data yang dikirim.
 Validator untuk memastikan nilai harus ada dan bukan null. Nilai 0, dan
 false akan dianggap valid.
 
+### required_on
+
+```php
+// ...
+    'required_on' => [
+        'field' => [
+            'operator' => '=',
+            'expected' => '2'
+        ],
+        'field' => [
+            'operator' => '!=',
+            'expected' => NULL
+        ],
+        'field' => [
+            'operator' => 'in',
+            'expected' => [1,2]
+        ],
+        'field' => [
+            'operator' => '!in',
+            'expected' => [1,2]
+        ]
+    ]
+// ...
+```
+
+Validator untuk memastikan nilai harus ada dan bukan null berdasarkan suatu kondisi
+nilai dari kolom lain. Nilai 0, dan false akan dianggap valid. Nilai operator yang dikenali
+adalah `=`, `>`, `<`, `>=`, `<=`, `in`, `!in`.
+
 ### text
 
 ```php

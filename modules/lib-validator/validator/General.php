@@ -166,6 +166,51 @@ class General
         return null;
     }
 
+    static function requiredOn($value, $options, $object, $field, $rules): ?array{
+        if(!is_null($value))
+            return null;
+        
+        foreach($options as $ofield => $cond){
+            $operator   = $cond->operator;
+            $expect_val = $cond->expected;
+            $other_val  = get_prop_value($object, $ofield) ?? NULL;
+
+            $match = false;
+
+            switch($operator){
+                case '=':
+                    $match = $other_val == $expect_val;
+                    break;
+                case '!=':
+                    $match = $other_val != $expect_val;
+                    break;
+                case '>':
+                    $match = $other_val > $expect_val;
+                    break;
+                case '<':
+                    $match = $other_val < $expect_val;
+                    break;
+                case '>=':
+                    $match = $other_val >= $expect_val;
+                    break;
+                case '<=':
+                    $match = $other_val <= $expect_val;
+                    break;
+                case 'in':
+                    $match = in_array($other_val, $expect_val);
+                    break;
+                case '!in':
+                    $match = !in_array($other_val, $expect_val);
+                    break;
+            }
+
+            if($match)
+                return ['11.0'];
+        }
+
+        return null;
+    }
+
     static function text($value, $options, $object, $field, $rules): ?array{
         if(is_null($value))
             return null;

@@ -65,6 +65,7 @@ return [
             'numeric' => 'LibValidator\\Validator\\General::numeric',
             'regex' => 'LibValidator\\Validator\\General::regex',
             'required' => 'LibValidator\\Validator\\General::required',
+            'required_on' => 'LibValidator\\Validator\\General::requiredOn',
             'text' => 'LibValidator\\Validator\\General::text',
             'url' => 'LibValidator\\Validator\\General::url'
         ],
