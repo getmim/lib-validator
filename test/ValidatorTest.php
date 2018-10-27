@@ -24,6 +24,20 @@ class ValidatorTest extends TestCase
 
     public function validatorProvider(){
         return [
+            // validator | expected | current value | validator options
+
+            ['empty',   null,   true,       false],
+            ['empty',   null,   'a',        false],
+            ['empty',   null,   (object)[], false],
+
+            ['empty',   '21.0', false,      false],
+            ['empty',   '21.0', 0,          false],
+            ['empty',   '21.0', '0',        false],
+
+            ['empty',   '21.1',   true,       true],
+            ['empty',   '21.1',   'a',        true],
+            ['empty',   '21.1',   (object)[], true],
+
             ['array',   null,   [],         true],
             ['array',   null,   [1,2],      true],
             ['array',   null,   ['a'=>1],   true],

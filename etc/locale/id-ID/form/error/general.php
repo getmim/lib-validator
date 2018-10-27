@@ -29,5 +29,7 @@ return [
     'not_an_url' => 'URL tidak valid',
     'dont_have_path' => 'URl tidak memiliki path',
     'dont_have_query' => 'URL tidak memiliki query string',
-    'require_query_not_present' => 'Query string yang dibutuhkan tidak ada, query string ini harus ada ((:url.query))'
+    'require_query_not_present' => 'Query string yang dibutuhkan tidak ada, query string ini harus ada ((:url.query))',
+    'is_empty' => 'Nilai tidak boleh kosong',
+    'is_not_empty' => 'Nilai harus kosong'
 ];

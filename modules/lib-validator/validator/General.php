@@ -60,6 +60,18 @@ class General
         return null;
     }
 
+    static function empty($value, $options, $object, $field, $rules): ?array{
+        if(is_null($value))
+            return null;
+
+        if($options && $value)
+            return ['21.1'];
+        elseif(!$options && !$value)
+            return ['21.0'];
+        
+        return null;
+    }
+
     static function in($value, $options, $object, $field, $rules): ?array{
         if(is_null($value))
             return null;

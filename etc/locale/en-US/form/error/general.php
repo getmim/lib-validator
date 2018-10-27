@@ -29,5 +29,7 @@ return [
     'not_an_url' => 'URL not valid',
     'dont_have_path' => 'URl dont have path',
     'dont_have_query' => 'URL dont have query string',
-    'require_query_not_present' => 'Required query is not there. Please use all this query ((:url.query))'
+    'require_query_not_present' => 'Required query is not there. Please use all this query ((:url.query))',
+    'is_empty' => 'The value can\'t be empty',
+    'is_not_empty' => 'The value should be empty'
 ];

@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-validator',
-    '__version' => '0.0.1',
+    '__version' => '0.0.2',
     '__git' => 'git@github.com:getmim/lib-validator.git',
     '__license' => 'MIT',
     '__author' => [
@@ -57,6 +57,7 @@ return [
             'callback' => 'LibValidator\\Validator\\General::callback',
             'date' => 'LibValidator\\Validator\\General::date',
             'email' => 'LibValidator\\Validator\\General::email',
+            'empty' => 'LibValidator\\Validator\\General::empty',
             'in' => 'LibValidator\\Validator\\General::in',
             'ip' => 'LibValidator\\Validator\\General::ip',
             'length' => 'LibValidator\\Validator\\General::length',
@@ -98,7 +99,9 @@ return [
             '13.0' => 'form.error.general.not_an_url',
             '13.1' => 'form.error.general.dont_have_path',
             '13.2' => 'form.error.general.dont_have_query',
-            '13.3' => 'form.error.general.require_query_not_present'
+            '13.3' => 'form.error.general.require_query_not_present',
+            '21.0' => 'form.error.general.is_empty',
+            '21.1' => 'form.error.general.is_not_empty'
         ]
     ],
 

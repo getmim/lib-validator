@@ -168,6 +168,16 @@ tanggal yang diterima.
 
 Validator untuk nilai email. Rule ini hanya menerima nilai `true`.
 
+### empty
+
+Memastikan suatu nilai harus falsy atau bukan.
+
+```php
+// ...
+    'empty' => false
+// ...
+```
+
 ### in
 
 ```php
@@ -489,6 +499,8 @@ number  | rule      | description
 13.1    | url       | Don't have path
 13.2    | url       | Don't have query
 13.3    | url       | Required query not present
+21.0    | empty     | The value is empty
+21.1    | empty     | The value is not empty
 
 Module-module lain yang juga mendaftarkan error code adalah sebagai berikut:
 
