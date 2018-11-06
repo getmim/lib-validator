@@ -151,12 +151,25 @@ Dimana:
 
 ```php
 // ...
-    'date' => 'Y-m-d'
+    'date' => [
+        'format' => 'Y-m-d',
+        'min' => '+1 days',         // optional
+        'min_field' => 'min-date',  // optional
+        'max' => '+7 days',         // optional
+        'max_field' => 'max-date'   // optional
+    ]
 // ...
 ```
 
-Validator untuk nilai date, dimana nilai dari rule ini adalah format
-tanggal yang diterima.
+Validator untuk nilai date. Penjelasan dari masing-masing properti adalah sebagai berikut:
+
+1. `format` Format tanggal yang diharapkan dikirim oleh client.
+1. `min` Nilai minimum tanggal yang diterima, akan menggunakan fungsi `strtotime`.
+1. `min_field` Nilai minimum diambil dari field object yang lain, akan dikombinasikan dengan
+   properti `min` jika tersedia.
+1. `max` Nilai maksimum tanggal yang diterima, akan menggunakan fungsi `strtotime`.
+1. `max_field` Nilai maximum diambil dari field object yang lain, akan dikombinasikan dengan
+   properti `max` jika tersedia.
 
 ### email
 
@@ -475,6 +488,9 @@ number  | rule      | description
 1.1     | array     | Not indexed array
 1.2     | array     | Not assoc array
 2.0     | date      | Not a date, or invalid format
+2.1     | date      | Wrong date format
+2.2     | date      | Date too early
+2.3     | date      | Date too far
 3.0     | email     | Not an email
 4.0     | in        | Not in array
 5.0     | ip        | Not an IP

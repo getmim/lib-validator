@@ -42,11 +42,40 @@ class General
         if(is_null($value))
             return null;
 
-        $date = date_create_from_format($options, $value);
+        $date = date_create_from_format($options->format, $value);
         if(false === $date)
             return ['2.0'];
-        if(date_format($date, $options) != $value)
+        $value_format = date_format($date, $options->format);
+        if($value_format != $value)
             return ['2.1'];
+
+        $value_time = date_create_from_format($options->format, $value_format);
+        $value_time = $value_time->getTimestamp();
+
+        $min = null;
+        if(isset($options->min_field))
+            $min = strtotime($object->{$options->min_field} ?? 'now');
+        if(isset($options->min))
+            $min = $min ? strtotime($options->min, $min) : strtotime($options->min);
+        if($min){
+            $min_time = date_create_from_format($options->format, date($options->format, $min));
+            $min_time = $min_time->getTimestamp();
+            if($min_time > $value_time)
+                return ['2.2'];
+        }
+
+        $max = null;
+        if(isset($options->max_field))
+            $max = strtotime($object->{$options->max_field} ?? 'now');
+        if(isset($options->max))
+            $max = $max ? strtotime($options->max, $max) : strtotime($options->max);
+        if($max){
+            $max_time = date_create_from_format($options->format, date($options->format, $max));
+            $max_time = $max_time->getTimestamp();
+            if($max_time < $value_time)
+                return ['2.3'];
+        }
+
         return null;
     }
 

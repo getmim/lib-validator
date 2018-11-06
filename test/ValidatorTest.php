@@ -14,8 +14,12 @@ class ValidatorTest extends TestCase
     /**
      * @dataProvider validatorProvider
      */
-    public function testValidator($method, $expect, $value, $options=null){
-        $result = General::$method($value, $options, 0, 0, 0);
+    public function testValidator($method, $expect, $value, $options=null, $object=null){
+        if(!$object)
+            $object = new stdClass();
+        $object->$method = $value;
+
+        $result = General::$method($value, $options, $object, $method, 0);
         if(is_array($result))
             $result = $result[0];
 
@@ -24,7 +28,7 @@ class ValidatorTest extends TestCase
 
     public function validatorProvider(){
         return [
-            // validator | expected | current value | validator options
+            // validator | expected | current value | validator options | custom object
 
             ['empty',   null,   true,       false],
             ['empty',   null,   'a',        false],
@@ -52,10 +56,37 @@ class ValidatorTest extends TestCase
             ['array',   null,   ['a'=>1],   'assoc'],
             ['array',   '1.2',  [12,3],     'assoc'],
 
-            ['date',    null,   '2018-08-04',       'Y-m-d'],
-            ['date',    null,   '2018/08/04 13',    'Y/m/d H'],
-            ['date',    '2.0',  'lorem',            'Y-m-d'],
-            ['date',    '2.0',  false,              'Y-m-d'],
+            'date-1' => ['date',    null,   '2018-08-04',       (object)['format'=>'Y-m-d']],
+            'date-2' => ['date',    null,   '2018/08/04 13',    (object)['format'=>'Y/m/d H']],
+            'date-3' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min'=>'2018-11-06']],
+            'date-4' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min'=>'2018-11-05']],
+            'date-5' => ['date',    null,   date('Y-m-d'),      (object)['format'=>'Y-m-d','min'=>'-1 days']],
+            'date-6' => ['date',    null,   date('Y-m-d'),      (object)['format'=>'Y-m-d','min'=>'now']],
+            'date-7' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max'=>'2018-11-06']],
+            'date-8' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max'=>'2018-11-07']],
+            'date-9' => ['date',    null,   date('Y-m-d'),      (object)['format'=>'Y-m-d','max'=>'+1 days']],
+            'date-10' => ['date',    null,   date('Y-m-d'),      (object)['format'=>'Y-m-d','max'=>'today']],
+            'date-11' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min'=>'2018-11-06','max'=>'2018-11-06']],
+            'date-12' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min'=>'2018-11-05','max'=>'2018-11-07']],
+            'date-13' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date'], (object)['min-date'=>'2018-11-05']],
+            'date-14' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date'], (object)['min-date'=>'2018-11-06']],
+            'date-15' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date'], (object)['max-date'=>'2018-11-07']],
+            'date-16' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date'], (object)['max-date'=>'2018-11-06']],
+            'date-17' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date','min'=>'+1 days'], (object)['min-date'=>'2018-11-04']],
+            'date-18' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date','min'=>'+1 days'], (object)['min-date'=>'2018-11-05']],
+            'date-19' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date','max'=>'+1 days'], (object)['max-date'=>'2018-11-06']],
+            'date-20' => ['date',    null,   '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date','max'=>'+1 days'], (object)['max-date'=>'2018-11-05']],
+            'date-21' => ['date',    '2.0',  'lorem',            (object)['format'=>'Y-m-d']],
+            'date-22' => ['date',    '2.0',  false,              (object)['format'=>'Y-m-d']],
+            'date-23' => ['date',    '2.0',  '2018-11-06 13',    (object)['format'=>'Y-m-d']],
+            'date-24' => ['date',    '2.2',  '2018-11-06',       (object)['format'=>'Y-m-d','min'=>'2018-11-07']],
+            'date-25' => ['date',    '2.2',   date('Y-m-d'),     (object)['format'=>'Y-m-d','min'=>'+1 days']],
+            'date-26' => ['date',    '2.2',  '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date'], (object)['min-date'=>'2018-11-07']],
+            'date-27' => ['date',    '2.2',  '2018-11-06',       (object)['format'=>'Y-m-d','min_field'=>'min-date','min'=>'+1 days'], (object)['min-date'=>'2018-11-06']],
+            'date-28' => ['date',    '2.3',  '2018-11-06',       (object)['format'=>'Y-m-d','max'=>'2018-11-05']],
+            'date-29' => ['date',    '2.3',   date('Y-m-d'),     (object)['format'=>'Y-m-d','max'=>'-1 days']],
+            'date-30' => ['date',    '2.3',  '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date'], (object)['max-date'=>'2018-11-05']],
+            'date-31' => ['date',    '2.3',  '2018-11-06',       (object)['format'=>'Y-m-d','max_field'=>'max-date','max'=>'-1 days'], (object)['max-date'=>'2018-11-06']],
             
             ['email',   null,   'name@host.com',    true],
             ['email',   '3.0',  'host.com',         true],

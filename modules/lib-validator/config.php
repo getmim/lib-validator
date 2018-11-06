@@ -76,6 +76,8 @@ return [
             '1.2' => 'form.error.general.not_assoc_array',
             '2.0' => 'form.error.general.not_a_date',
             '2.1' => 'form.error.general.wrong_date_format',
+            '2.2' => 'form.error.general.the_date_too_early',
+            '2.3' => 'form.error.general.the_date_too_far',
             '3.0' => 'form.error.general.not_an_email',
             '4.0' => 'form.error.general.not_in_array',
             '5.0' => 'form.error.general.not_an_ip',
