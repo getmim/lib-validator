@@ -226,7 +226,7 @@ nilai 4 untuk menerima hanya IPv4, atau 6 untuk menerima hanya IPv6.
 // ...
 ```
 
-Validator untuk panjang suatu string.
+Validator untuk panjang suatu string atau array.
 
 ### notin
 

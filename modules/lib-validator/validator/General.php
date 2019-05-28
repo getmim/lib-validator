@@ -139,7 +139,10 @@ class General
         if(is_null($value))
             return null;
 
-        $len = strlen($value);
+        if(is_string($value))
+            $len = strlen($value);
+        elseif(is_array($value))
+            $len = count($value);
 
         if(isset($options->min) && $len < $options->min)
             return ['6.0'];
