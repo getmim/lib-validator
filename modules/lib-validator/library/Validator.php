@@ -89,13 +89,13 @@ class Validator
                 $is_valid = false;
 
                 $new_errors[$fname] = self::buildError([
-                    'valid' => $valid,
-                    'rules' => $rules,
-                    'rule'  => $rname,
-                    'value' => $value,
-                    'field' => $fname,
-                    'parent'=> $parent,
-                    'validation' => $validation
+                    'valid'         => $valid,
+                    'rules'         => $rules,
+                    'rule'          => $rname,
+                    'value'         => $value,
+                    'field'         => $fname,
+                    'parent'        => $parent,
+                    'validation'    => $validation
                 ]);
                 break;
             }
@@ -109,7 +109,7 @@ class Validator
                 }
 
                 // apply children
-                if($children){
+                if($children && $value){
                     // indexed array
                     if(isset($children->{'*'})){
                         $cvalidation = $children->{'*'};
