@@ -36,7 +36,7 @@ class Validator
 
         $params = $valid[1] ?? [];
         $params['field'] = $field;
-        $params[$rule] = $validation->rules->$rule;
+        $params[$rule]   = $validation->rules->$rule;
         $params['value'] = $value;
 
         foreach($validation as $key => $val){
@@ -51,7 +51,13 @@ class Validator
             'text'  => ''
         ];
 
-        $text = lang((self::$trans[$code] ?? ''), $params);
+        $lang_key = self::$trans[$code] ?? '';
+
+        // custom translation key
+        if(isset($validation->message) && isset($validation->message->$rule))
+            $lang_key = $validation->message->$rule;
+
+        $text = lang($lang_key, $params);
         $result->text = $text;
 
         return $result;
