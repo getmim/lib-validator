@@ -7,6 +7,7 @@ return [
     'in_array' => 'Nilai tidak boleh, jangan gunakan salah satu dari ((:notin))',
     'is_empty' => 'Nilai tidak boleh kosong',
     'is_not_empty' => 'Nilai harus kosong',
+    'is_not_valid_json_string' => 'Nilai bukan json string yang valid',
     'not_a_date' => 'Tanggal tidak valid',
     'not_a_slug' => 'Bukan data slug yang valid',
     'not_a_text' => 'Data bukan teks',

@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-validator',
-    '__version' => '0.0.4',
+    '__version' => '1.0.0',
     '__git' => 'git@github.com:getmim/lib-validator.git',
     '__license' => 'MIT',
     '__author' => [
@@ -60,6 +60,7 @@ return [
             'empty' => 'LibValidator\\Validator\\General::empty',
             'in' => 'LibValidator\\Validator\\General::in',
             'ip' => 'LibValidator\\Validator\\General::ip',
+            'json' => 'LibValidator\\Validator\\General::json',
             'length' => 'LibValidator\\Validator\\General::length',
             'object' => 'LibValidator\\Validator\\General::object',
             'notin' => 'LibValidator\\Validator\\General::notin',
@@ -103,7 +104,8 @@ return [
             '13.2' => 'form.error.general.dont_have_query',
             '13.3' => 'form.error.general.require_query_not_present',
             '21.0' => 'form.error.general.is_empty',
-            '21.1' => 'form.error.general.is_not_empty'
+            '21.1' => 'form.error.general.is_not_empty',
+            '23.1' => 'form.error.general.is_not_valid_json_string'
         ]
     ],
 

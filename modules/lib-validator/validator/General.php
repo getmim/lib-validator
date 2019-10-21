@@ -135,6 +135,16 @@ class General
         return null;
     }
 
+    static function json($value, $options, $object, $field, $rules): ?array{
+        if(is_null($value))
+            return null;
+
+        $tmp = json_decode($value);
+        if(json_last_error() === JSON_ERROR_NONE)
+            return null;
+        return ['23.1'];
+    }
+
     static function length($value, $options, $object, $field, $rules): ?array{
         if(is_null($value))
             return null;

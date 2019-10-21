@@ -7,6 +7,7 @@ return [
     'in_array' => 'The value is not accepted, dont use any of ((:notin))',
     'is_empty' => 'The value can\'t be empty',
     'is_not_empty' => 'The value should be empty',
+    'is_not_valid_json_string' => 'The value is not valid json string',
     'not_a_date' => 'The date is not valid',
     'not_a_slug' => 'The value is not valid slug',
     'not_a_text' => 'The value is not a text',
