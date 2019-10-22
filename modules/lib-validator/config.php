@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-validator',
-    '__version' => '1.0.0',
+    '__version' => '1.0.1',
     '__git' => 'git@github.com:getmim/lib-validator.git',
     '__license' => 'MIT',
     '__author' => [

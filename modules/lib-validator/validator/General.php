@@ -10,7 +10,7 @@ namespace LibValidator\Validator;
 class General
 {
     static function array($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
         
         if(!is_array($value))
@@ -39,7 +39,7 @@ class General
     }
 
     static function date($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         $date = date_create_from_format($options->format, $value);
@@ -80,7 +80,7 @@ class General
     }
 
     static function email($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         $email = filter_var($value, FILTER_VALIDATE_EMAIL);
@@ -102,7 +102,7 @@ class General
     }
 
     static function in($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if(!in_array($value, $options))
@@ -111,7 +111,7 @@ class General
     }
 
     static function ip($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if($options === true){
@@ -136,7 +136,7 @@ class General
     }
 
     static function json($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         $tmp = json_decode($value);
@@ -164,7 +164,7 @@ class General
     }
 
     static function notin($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if(in_array($value, $options))
@@ -173,7 +173,7 @@ class General
     }
 
     static function numeric($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if(!is_numeric($value))
@@ -206,7 +206,7 @@ class General
     }
 
     static function regex($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if(!preg_match($options, $value))
@@ -266,7 +266,7 @@ class General
     }
 
     static function text($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
 
         if(!is_string($value))
@@ -288,7 +288,7 @@ class General
     }
     
     static function url($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(!$value)
             return null;
         
         if(!filter_var($value, FILTER_VALIDATE_URL))
