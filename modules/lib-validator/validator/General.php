@@ -38,6 +38,31 @@ class General
         return $class::$method($value, $options, $object, $field, $rules);
     }
 
+    static function config($value, $options, $object, $field, $rules): ?array{
+        if(is_null($value))
+            return null;
+
+        if(isset($options->prop) && $options->prop){
+            $cval = get_prop_value(\Mim::$app->config, $options->prop);
+            if(!property_exists($cval, $value))
+                return ['25.0'];
+        }
+
+        if(isset($options->in)){
+            $cval = get_prop_value(\Mim::$app->config, $options->in);
+            if(!in_array($value, $cval))
+                return ['25.1'];
+        }
+
+        if(isset($options->is)){
+            $cval = get_prop_value(\Mim::$app->config, $options->is);
+            if($cval !== $value)
+                return ['25.2'];
+        }
+
+        return null;
+    }
+
     static function date($value, $options, $object, $field, $rules): ?array{
         if(!$value)
             return null;

@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-validator',
-    '__version' => '1.0.1',
+    '__version' => '1.1.0',
     '__git' => 'git@github.com:getmim/lib-validator.git',
     '__license' => 'MIT',
     '__author' => [
@@ -55,6 +55,7 @@ return [
         'validators' => [
             'array' => 'LibValidator\\Validator\\General::array',
             'callback' => 'LibValidator\\Validator\\General::callback',
+            'config' => 'LibValidator\\Validator\\General::config',
             'date' => 'LibValidator\\Validator\\General::date',
             'email' => 'LibValidator\\Validator\\General::email',
             'empty' => 'LibValidator\\Validator\\General::empty',
@@ -105,7 +106,10 @@ return [
             '13.3' => 'form.error.general.require_query_not_present',
             '21.0' => 'form.error.general.is_empty',
             '21.1' => 'form.error.general.is_not_empty',
-            '23.1' => 'form.error.general.is_not_valid_json_string'
+            '23.1' => 'form.error.general.is_not_valid_json_string',
+            '25.0' => 'form.error.general.is_not_in_acceptable_value',
+            '25.1' => 'form.error.general.is_not_in_acceptable_list_values',
+            '25.2' => 'form.error.general.is_not_match_with_requested_value'
         ]
     ],
 
