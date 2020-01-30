@@ -33,6 +33,10 @@ class General
         return is_null($value) ? $value : (object)$value;
     }
 
+    static function round($value, $options, $object, $field, $filters){
+        return is_int($options) ? round($value, $options) : round($value);
+    }
+
     static function string($value, $options, $object, $field, $filters){
         return is_null($value) ? $value : (string)$value;
     }
