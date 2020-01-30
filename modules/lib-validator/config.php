@@ -48,6 +48,7 @@ return [
             'integer' => 'LibValidator\\Filter\\General::integer',
             'lowercase' => 'LibValidator\\Filter\\General::lowercase',
             'object' => 'LibValidator\\Filter\\General::object',
+            'round' => 'LibValidator\\Filter\\General::round',
             'string' => 'LibValidator\\Filter\\General::string',
             'ucwords' => 'LibValidator\\Filter\\General::ucwords',
             'uppercase' => 'LibValidator\\Filter\\General::uppercase'
