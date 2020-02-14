@@ -171,7 +171,7 @@ class General
     }
 
     static function length($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if(is_null($value) || !$value)
             return null;
 
         if(is_string($value))
