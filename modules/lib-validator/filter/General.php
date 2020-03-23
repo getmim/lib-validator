@@ -34,6 +34,8 @@ class General
     }
 
     static function round($value, $options, $object, $field, $filters){
+        if(is_null($value))
+            return $value;
         return is_int($options) ? round($value, $options) : round($value);
     }
 
