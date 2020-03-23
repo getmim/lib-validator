@@ -78,7 +78,8 @@ class Validator
             $children = $validation->children ?? null;
             $next_parent = ($parent?$parent.'.':'') . $fname;
 
-            $value    = $object->$fname ?? null;
+            $undifined = !property_exists($object, $fname);
+            $value     = !$undifined ? $object->$fname : null;
 
             $is_valid = true;
 
@@ -146,7 +147,7 @@ class Validator
                 }
             }
 
-            if(!is_null($value))
+            if(!$undifined)
                 $new_object->$fname = $value;
         }
 
