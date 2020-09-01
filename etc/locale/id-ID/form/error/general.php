@@ -10,6 +10,7 @@ return [
     'is_not_in_acceptable_list_values' => 'Nilai bukan salah satu yang diperbolehkan',
     'is_not_match_with_requested_value' => 'Nilai tidak sama dengan yang diharuskan',
     'is_not_empty' => 'Nilai harus kosong',
+    'is_not_equal' => 'Nilai tidak sama',
     'is_not_valid_json_string' => 'Nilai bukan json string yang valid',
     'not_a_date' => 'Tanggal tidak valid',
     'not_a_slug' => 'Bukan data slug yang valid',

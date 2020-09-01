@@ -10,6 +10,7 @@ return [
     'is_not_in_acceptable_list_values' => 'The value is not in acceptable list value',
     'is_not_match_with_requested_value' => 'The value is not match with requested value',
     'is_not_empty' => 'The value should be empty',
+    'is_not_equal' => 'The value is not equal',
     'is_not_valid_json_string' => 'The value is not valid json string',
     'not_a_date' => 'The date is not valid',
     'not_a_slug' => 'The value is not valid slug',
@@ -37,5 +38,5 @@ return [
     'too_less' => 'The value is too less',
     'too_long' => 'The value is too long',
     'too_short' => 'The value is too short',
-    'wrong_date_format' => 'Date format not match, plese use (:date) format',
+    'wrong_date_format' => 'Date format not match, plese use (:date) format'
 ];

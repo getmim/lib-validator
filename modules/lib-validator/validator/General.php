@@ -126,6 +126,15 @@ class General
         return null;
     }
 
+    static function equalsTo($value, $options, $object, $field, $rules): ?array{
+        $reff_field = $rules->equals_to;
+        $reff_value = $object->{$reff_field};
+
+        if($value !== $reff_value)
+            return ['26.1'];
+        return null;
+    }
+
     static function in($value, $options, $object, $field, $rules): ?array{
         if(!$value)
             return null;
