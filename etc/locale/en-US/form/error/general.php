@@ -6,6 +6,7 @@ return [
     'dont_have_query' => 'URL dont have query string',
     'in_array' => 'The value is not accepted, dont use any of ((:notin))',
     'is_empty' => 'The value can\'t be empty',
+    'is_not_file' => 'The value is not uploaded file',
     'is_not_in_acceptable_value' => 'The value is not acceptable value',
     'is_not_in_acceptable_list_values' => 'The value is not in acceptable list value',
     'is_not_match_with_requested_value' => 'The value is not match with requested value',

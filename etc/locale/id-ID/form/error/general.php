@@ -6,6 +6,7 @@ return [
     'dont_have_query' => 'URL tidak memiliki query string',
     'in_array' => 'Nilai tidak boleh, jangan gunakan salah satu dari ((:notin))',
     'is_empty' => 'Nilai tidak boleh kosong',
+    'is_not_file' => 'Nilai yang diterima bukan file upload',
     'is_not_in_acceptable_value' => 'Nilai tidak dapat digunakan',
     'is_not_in_acceptable_list_values' => 'Nilai bukan salah satu yang diperbolehkan',
     'is_not_match_with_requested_value' => 'Nilai tidak sama dengan yang diharuskan',

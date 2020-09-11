@@ -61,6 +61,7 @@ return [
             'email' => 'LibValidator\\Validator\\General::email',
             'empty' => 'LibValidator\\Validator\\General::empty',
             'equals_to' => 'LibValidator\\Validator\\General::equalsTo',
+            'file' => 'LibValidator\\Validator\\General::file',
             'in' => 'LibValidator\\Validator\\General::in',
             'ip' => 'LibValidator\\Validator\\General::ip',
             'json' => 'LibValidator\\Validator\\General::json',
@@ -112,7 +113,8 @@ return [
             '25.0' => 'form.error.general.is_not_in_acceptable_value',
             '25.1' => 'form.error.general.is_not_in_acceptable_list_values',
             '25.2' => 'form.error.general.is_not_match_with_requested_value',
-            '26.1' => 'form.error.general.is_not_equal'
+            '26.1' => 'form.error.general.is_not_equal',
+            '28.0' => 'form.error.general.is_not_file'
         ]
     ],
 

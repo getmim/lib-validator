@@ -135,6 +135,16 @@ class General
         return null;
     }
 
+    static function file($value, $options, $object, $field, $rules): ?array{
+        $file = $_FILES[$field] ?? null;
+        if(!$file)
+            return null;
+
+        if($value !== $file)
+            return ['28.0'];
+        return null;
+    }
+
     static function in($value, $options, $object, $field, $rules): ?array{
         if(!$value)
             return null;
