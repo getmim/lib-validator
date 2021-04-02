@@ -2,7 +2,7 @@
 /**
  * General validator
  * @package lib-validator
- * @version 0.0.1
+ * @version 1.3.2
  */
 
 namespace LibValidator\Validator;
@@ -12,7 +12,7 @@ class General
     static function array($value, $options, $object, $field, $rules): ?array{
         if(!$value)
             return null;
-        
+
         if(!is_array($value))
             return ['1.0'];
         if($options === true)
@@ -122,7 +122,7 @@ class General
             return ['21.1'];
         elseif(!$options && !$value)
             return ['21.0'];
-        
+
         return null;
     }
 
@@ -169,7 +169,7 @@ class General
                 return null;
             return ['5.1'];
         }
-            
+
         if($options == '6'){
             if(false !== filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
                 return null;
@@ -259,7 +259,7 @@ class General
     }
 
     static function required($value, $options, $object, $field, $rules): ?array{
-        if(is_null($value))
+        if($options === true && is_null($value))
             return ['11.0'];
         return null;
     }
@@ -267,7 +267,7 @@ class General
     static function requiredOn($value, $options, $object, $field, $rules): ?array{
         if(!is_null($value))
             return null;
-        
+
         foreach($options as $ofield => $cond){
             $operator   = $cond->operator;
             $expect_val = $cond->expected;
@@ -330,11 +330,11 @@ class General
 
         return null;
     }
-    
+
     static function url($value, $options, $object, $field, $rules): ?array{
         if(!$value)
             return null;
-        
+
         if(!filter_var($value, FILTER_VALIDATE_URL))
             return ['13.0'];
         if(!is_object($options))
