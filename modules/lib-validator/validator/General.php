@@ -2,7 +2,7 @@
 /**
  * General validator
  * @package lib-validator
- * @version 1.3.2
+ * @version 1.3.3
  */
 
 namespace LibValidator\Validator;
@@ -217,7 +217,7 @@ class General
     }
 
     static function numeric($value, $options, $object, $field, $rules): ?array{
-        if(!$value)
+        if(is_null($value))
             return null;
 
         if(!is_numeric($value))
@@ -226,6 +226,7 @@ class General
         if(is_object($options)){
             if(isset($options->min) && $value < $options->min)
                 return ['8.1'];
+
 
             if(isset($options->max) && $value > $options->max)
                 return ['8.2'];
