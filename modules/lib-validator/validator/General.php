@@ -216,6 +216,11 @@ class General
         return null;
     }
 
+    static function number($value, $options, $object, $field, $rules): ?array
+    {
+        return self::numeric($value, $options, $object, $field, $rules);
+    }
+
     static function numeric($value, $options, $object, $field, $rules): ?array{
         if(is_null($value))
             return null;
@@ -232,9 +237,9 @@ class General
                 return ['8.2'];
 
             if(isset($options->decimal)){
-                $point = preg_replace('!^0\.!', '', (string)abs(round($value) - $value));
-                if(strlen($point) != $options->decimal)
-                    return ['8.3'];
+                // this feature is not possible
+                // if(strlen($point) != $options->decimal)
+                    // return ['8.3'];
             }
         }
 
