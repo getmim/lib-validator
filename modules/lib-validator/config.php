@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-validator',
-    '__version' => '1.3.4',
+    '__version' => '1.4.0',
     '__git' => 'git@github.com:getmim/lib-validator.git',
     '__license' => 'MIT',
     '__author' => [
@@ -45,6 +45,7 @@ return [
             'array' => 'LibValidator\\Filter\\General::array',
             'boolean' => 'LibValidator\\Filter\\General::boolean',
             'float' => 'LibValidator\\Filter\\General::float',
+            'emptystr2null' => 'LibValidator\\Filter\\General::emptystr2null',
             'integer' => 'LibValidator\\Filter\\General::integer',
             'lowercase' => 'LibValidator\\Filter\\General::lowercase',
             'object' => 'LibValidator\\Filter\\General::object',

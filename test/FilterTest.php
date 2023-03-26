@@ -35,6 +35,11 @@ class FilterTest extends TestCase
             ['float', 1, (float)1],
             ['float', '12.21', 12.21],
 
+            ['emptystr2null', 'a', 'a'],
+            ['emptystr2null', '', null],
+            ['emptystr2null', [], []],
+            ['emptystr2null', 0, 0],
+
             ['integer', 0, 0],
             ['integer', 1, 1],
             ['integer', [], 0],

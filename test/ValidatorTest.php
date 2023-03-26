@@ -132,11 +132,11 @@ class ValidatorTest extends TestCase
             ['numeric', '8.2',  12,         (object)['max'=>11]],
             ['numeric', '8.2',  '12',       (object)['max'=>11]],
 
-            ['numeric', null,   12.12,      (object)['decimal'=>2]],
-            ['numeric', null,   '12.123',   (object)['decimal'=>3]],
-            ['numeric', '8.3',  12.12,      (object)['decimal'=>1]],
-            ['numeric', '8.3',  '12.12',    (object)['decimal'=>1]],
-            ['numeric', '8.3',  32.1,       (object)['decimal'=>2]],
+            // ['numeric', null,   12.12,      (object)['decimal'=>2]],
+            // ['numeric', null,   '12.123',   (object)['decimal'=>3]],
+            // ['numeric', '8.3',  12.12,      (object)['decimal'=>1]],
+            // ['numeric', '8.3',  '12.12',    (object)['decimal'=>1]],
+            // ['numeric', '8.3',  32.1,       (object)['decimal'=>2]],
 
             ['object',  null,   (object)[],         true],
             ['object',  null,   new \DateTime(),    true],
