@@ -39,5 +39,5 @@ return [
     'too_less' => 'Terlalu sedikit',
     'too_long' => 'Nilai terlalu besar',
     'too_short' => 'Ukuran nilai terlalu kecil',
-    'wrong_date_format' => 'Format tidak cocok, gunakan fomat (:date)',
+    'wrong_date_format' => 'Format tidak cocok, gunakan fomat (:format)',
 ];

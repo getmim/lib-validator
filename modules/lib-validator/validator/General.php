@@ -89,7 +89,7 @@ class General
 
         $value_format = date_format($date, $options->format);
         if ($value_format != $value) {
-            return ['2.1'];
+            return ['2.1', ['format' => $options->format]];
         }
 
         $value_time = date_create_from_format($options->format, $value_format);

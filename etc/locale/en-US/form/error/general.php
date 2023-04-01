@@ -39,5 +39,5 @@ return [
     'too_less' => 'The value is too less',
     'too_long' => 'The value is too long',
     'too_short' => 'The value is too short',
-    'wrong_date_format' => 'Date format not match, plese use (:date) format'
+    'wrong_date_format' => 'Date format not match, plese use (:format) format'
 ];
