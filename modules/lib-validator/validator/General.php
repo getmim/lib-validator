@@ -78,7 +78,7 @@ class General
 
     static function date($value, $options, $object, $field, $rules): ?array
     {
-        if (is_null($value)) {
+        if (is_null($value) || $value === '') {
             return null;
         }
 
