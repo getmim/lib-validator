@@ -15,7 +15,7 @@ class General
             return null;
         }
 
-        if (!is_array($value)) {
+        if (!is_array($value) && !is_object($value)) {
             return ['1.0'];
         }
 
