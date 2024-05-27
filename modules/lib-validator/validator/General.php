@@ -2,7 +2,7 @@
 /**
  * General validator
  * @package lib-validator
- * @version 1.3.3
+ * @version 1.4.4
  */
 
 namespace LibValidator\Validator;
@@ -15,7 +15,11 @@ class General
             return null;
         }
 
-        if (!is_array($value) && !is_object($value)) {
+        if (is_object($value)) {
+            $value = (array)$value;
+        }
+
+        if (!is_array($value)) {
             return ['1.0'];
         }
 
